@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import CategorySelection from "./pages/CategorySelection";
+import CityGuessGame from "./pages/CityGuessGame";
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HashRouter>
+        <Routes>
+          <Route path="/categories" element={<CategorySelection />} />
+          <Route path="/top" element={<CityGuessGame />} />
+          <Route path="/" element={<Navigate to="/categories" replace />} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
